@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 
 x_o = ["", "", "",
-       "", "", "",
-       "", "", ""]
+    "", "", "",
+    "", "", ""]
 
 victorias_x = 0
 victorias_o = 0
