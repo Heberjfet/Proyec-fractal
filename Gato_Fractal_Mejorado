@@ -23,7 +23,7 @@ else:
 
 amtrow =9
 amtcol =9
- # HEIGHT AND WIDTH NEED TO BE LARGER THAN MARGIN !!!
+# HEIGHT AND WIDTH NEED TO BE LARGER THAN MARGIN !!!
 HEIGHT = 75
 WIDTH = 75
 MARGIN = 5
@@ -273,11 +273,11 @@ while not done:
             if grid[column][row] == 2:
                 color = BLUE
             pygame.draw.rect(screen,
-                             color,
+                            color,
                              [((MARGIN + WIDTH) * column) + MARGIN + extramarginx,
                               ((MARGIN + HEIGHT) * row) + MARGIN+ extramarginy,
-                              WIDTH,
-                              HEIGHT])
+                            WIDTH,
+                            HEIGHT])
 
             pygame.draw.rect(screen, playcolour, playrect,playwidth)
         extramarginx =0
