@@ -1,10 +1,4 @@
 import pygame
-"""
----Ulimate Tic Tac Toe---
-----Made By Ethan Ray----
------   20/08/2019  -----
-"""
-
 
 darkmode = "n"
 if "y" in darkmode:
@@ -194,7 +188,7 @@ pygame.init()
 WINDOW_SIZE = [totxsize, totysize]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 
-pygame.display.set_caption("Ulimate Tic tac toe")
+pygame.display.set_caption("Gato Fractal")
 try:
     gameIcon = pygame.image.load('Logo2.png')
     pygame.display.set_icon(gameIcon)
@@ -244,7 +238,7 @@ while not done:
                         if redPlaying == True:
                             grid[xcord][ycord] = 1
                             redPlaying = False
-                            playcolour = BLUE
+                            playcolour = RED
                         else:
                             grid[xcord][ycord] = 2
                             redPlaying = True
@@ -256,6 +250,7 @@ while not done:
 
 
     # Set the screen background
+    font = pygame.font.Font(None, 36)
     screen.fill(BLACK)
 
     # Draw the grid
@@ -268,16 +263,24 @@ while not done:
             color = WHITE
             if column%3 == 0:
                 extramarginx = extramarginx + MARGIN
+            text = None  # Inicializa text en None
             if grid[column][row] == 1:
-                color = RED
-            if grid[column][row] == 2:
-                color = BLUE
+                text = font.render("X", True, RED)
+            elif grid[column][row] == 2:
+                text = font.render("O", True, BLUE)
+                
             pygame.draw.rect(screen,
                              color,
                              [((MARGIN + WIDTH) * column) + MARGIN + extramarginx,
                               ((MARGIN + HEIGHT) * row) + MARGIN+ extramarginy,
                               WIDTH,
                               HEIGHT])
+            
+            if text:
+                text_rect = text.get_rect()
+                text_rect.center = (((MARGIN + WIDTH) * column) + MARGIN + extramarginx + WIDTH // 2,
+                                    ((MARGIN + HEIGHT) * row) + MARGIN + extramarginy + HEIGHT // 2)
+                screen.blit(text, text_rect)
 
             pygame.draw.rect(screen, playcolour, playrect,playwidth)
         extramarginx =0
