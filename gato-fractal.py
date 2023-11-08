@@ -25,7 +25,7 @@ playcolour = [25, 250, 100]
 grid = []
 TotalGrid = []
 totxsize = ((WIDTH + MARGIN) * amtrow)+5*MARGIN
-totysize = ((HEIGHT + MARGIN) * amtcol)+5*MARGIN
+totysize = ((HEIGHT + MARGIN) * amtcol)+10*MARGIN
 def ResizePlayBox(playrect,allowedx,allowedy):
     if allowedx == -1 and allowedy == -1:
         playrect[0] = MARGIN

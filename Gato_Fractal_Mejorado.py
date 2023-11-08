@@ -50,9 +50,8 @@ def draw_timer(screen):
     timer_text = format_time(elapsed_time)
     font = pygame.font.Font(None, 36)
     text = font.render(timer_text, True, WHITE)
-    screen.blit(text, (10, 10))
+    screen.blit(text, (25, 715))
 
-# Resto del código (ResizePlayBox, NextBox, SetWin, winSetter, winCalc)
 def ResizePlayBox(playrect, allowedx, allowedy):
     if allowedx == -1 and allowedy == -1:
         playrect[0] = MARGIN
@@ -201,7 +200,7 @@ WINDOW_SIZE = [totxsize, totysize]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Gato Fractal")
 try:
-    gameIcon = pygame.image.load('Logo2.png')
+    gameIcon = pygame.image.load()
     pygame.display.set_icon(gameIcon)
 except:
     print("No logo found starting anyway")
@@ -254,7 +253,7 @@ while not done:
                         if redPlaying == True:
                             grid[xcord][ycord] = 1
                             redPlaying = False
-                            playcolour = RED
+                            playcolour = BLUE
                         else:
                             grid[xcord][ycord] = 2
                             redPlaying = True
@@ -264,13 +263,10 @@ while not done:
                         ResizePlayBox(playrect,allowedx,allowedy)
 
     font = pygame.font.Font(None, 36)
-    screen.fill(BLACK)  # Limpia la pantalla con fondo negro
-
-    # Dibuja el temporizador en la pantalla
-    #draw_timer(screen,10,10)
+    screen.fill(BLACK)  
 
     extramarginx = 0
-    extramarginy = 20
+    extramarginy = 0
     for row in range(amtrow):
         if row%3 == 0:
             extramarginy = extramarginy +MARGIN
